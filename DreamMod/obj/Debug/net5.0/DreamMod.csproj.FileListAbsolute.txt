@@ -1,0 +1,10 @@
+C:\Users\Clare\Documents\DreamMod\DreamMod\bin\Debug\net5.0\DreamMod.deps.json
+C:\Users\Clare\Documents\DreamMod\DreamMod\bin\Debug\net5.0\DreamMod.dll
+C:\Users\Clare\Documents\DreamMod\DreamMod\bin\Debug\net5.0\DreamMod.pdb
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.csproj.AssemblyReference.cache
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.AssemblyInfoInputs.cache
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.AssemblyInfo.cs
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.csproj.CoreCompileInputs.cache
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.dll
+C:\Users\Clare\Documents\DreamMod\DreamMod\obj\Debug\net5.0\DreamMod.pdb

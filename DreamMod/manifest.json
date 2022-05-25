@@ -1,0 +1,10 @@
+{
+  "Name": "DreamMod",
+  "Author": "Clare",
+  "Version": "1.0.0",
+  "Description": "Adds dream effects to gameplay",
+  "UniqueID": "Clare.DreamMod",
+  "EntryDll": "DreamMod.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}

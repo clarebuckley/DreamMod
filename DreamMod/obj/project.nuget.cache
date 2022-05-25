@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZH6WYTIWnBptSTRZ7yMk75+1s6HFh7NbDcEIGtbKuU4VgbvxboX7Q+p+LGFHZ95ldFY1cbBSpGzTaP1DdmTv2A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Clare\\Documents\\DreamMod\\DreamMod\\DreamMod.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Clare\\.nuget\\packages\\ikvm\\8.1.5717\\ikvm.8.1.5717.nupkg.sha512",
+    "C:\\Users\\Clare\\.nuget\\packages\\pathoschild.stardew.modbuildconfig\\4.0.1\\pathoschild.stardew.modbuildconfig.4.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'IKVM 8.1.5717' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "IKVM",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

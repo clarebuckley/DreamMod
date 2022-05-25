@@ -1,0 +1,13 @@
+{
+  "Name": "GoodnightMod",
+  "Author": "Clare",
+  "Description": "Adds new NPC to game",
+  "Version": "1.0.0",
+  "UniqueID": "clare.goodnightmod",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "UpdateKeys": [
+    "Nexus: "
+  ]
+}

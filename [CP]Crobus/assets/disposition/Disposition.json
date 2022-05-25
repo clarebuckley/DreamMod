@@ -1,0 +1,11 @@
+{
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "data/NPCDispositions",
+      "Entries": {
+        "Crobus": "adult/polite/shy/positive/male/non-datable/null/Town/fall 14//BusStop 14 23/Crobus"
+      }
+    }
+  ]
+}
