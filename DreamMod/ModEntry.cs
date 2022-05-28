@@ -20,14 +20,11 @@ namespace DreamMod
             source = new string[3] { "A strange dream...", "Did I dream that?", "How odd!" };
         }
 
-        /*********
-        ** Public methods
-        *********/
         /// <summary>The mod entry point, called after the mod is first loaded.</summary>
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
-        IModEvents events = helper.Events;
+            IModEvents events = helper.Events;
             events.GameLoop.DayStarted += this.OnDayStarted;
         }
 
@@ -40,10 +37,12 @@ namespace DreamMod
             // ignore if player hasn't loaded a save yet
             if (!Context.IsWorldReady)
                 return;
+
             UpdateBuff();
 
         }
 
+        /// <summary>After a dream, applies a buff to the player.</summary>
         private void UpdateBuff()
         {
             Buff buff = Game1.buffsDisplay.otherBuffs.FirstOrDefault(p => p.which == this.BuffUniqueID);
