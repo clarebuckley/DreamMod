@@ -1,9 +1,9 @@
 {
-  "Name": "GoodnightMod",
+  "Name": "Crobus CP",
   "Author": "Clare",
   "Description": "Adds new NPC to game",
   "Version": "1.0.0",
-  "UniqueID": "clare.goodnightmod",
+  "UniqueID": "clare.crobus",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"
   },
