@@ -12,19 +12,44 @@ namespace DreamMod
     public class ModEntry : Mod
     {
         private readonly int BuffUniqueID = 58012397;
-        private string[] source;
+        private string[] buffSource;
+        private string[] wakeUpMessages;
+        private string[] crobusDreamSpeech;
+        private string[] crobusWakeSpeech;
 
 
         public ModEntry()
         {
             BuffUniqueID = 58012397;
-            source = new string[5] 
-            { 
-                "A strange dream...", 
-                "Did I dream that?", 
-                "How odd!", 
-                "???", 
-                "!@#~??&*£)" 
+            buffSource = new string[5]
+            {
+                "A strange dream...",
+                "Did I dream that?",
+                "How odd!",
+                "???",
+                "!@#~??&*£)"
+            };
+            wakeUpMessages = new string[3]
+            {
+                "You wake up from the coziest night's sleep...",
+                "Wow! That was the best night's sleep of your life!",
+                "You wake up with a newfound sense of inner peace"
+            };
+            crobusDreamSpeech = new string[5]
+            {
+                "Good night @...!$s#$b#Sweet dreams.$h",
+                "You had a big day today... time to get some rest#$b##Good night @.$h",
+                "Sleep well, you have a big day ahead of you tomorrow!$h",
+                "Shhhh...#$b##Time to sleep now.$h",
+                "All tucked in?$s#$b#Good... sweet dreams.$h",
+            };
+            crobusWakeSpeech = new string[5]
+            {
+                "You look like you slept well last night.#$b#(You're welcome)$h",
+                "Big night?",
+                "I like to watch you sleep sometimes...#$b#I hope that's okay.",
+                "Zzzzz...#$b#Sorry, I was working late last night.",
+                "Hi again @!#$b#Again? Uh.. no-#$b#I mean...#$b#Hi @."
             };
         }
 
@@ -34,7 +59,7 @@ namespace DreamMod
         public override void Entry(IModHelper helper)
         {
             IModEvents events = helper.Events;
-            events.GameLoop.DayStarted += this.OnDayStarted; 
+            events.GameLoop.DayStarted += this.OnDayStarted;
         }
 
 
@@ -55,27 +80,13 @@ namespace DreamMod
         /// <param name="e"> OnWarp events.</param>
         private void DreamEvent(EventArgs e)
         {
-            this.Monitor.Log("Starting dream event", LogLevel.Info);
-            //this is glitchy but works kind of
-            string[] dreamEventString = new[]
-            {
-                "grandpas_theme/6 6/farmer 9 9 2 Crobus 7 7 1/skippable/pause 500/emote Crobus 36/move Crobus 0 2 2/move Crobus 1 0 1/pause 500/speak Crobus \"Good night @...!$s#$b#Sweet dreams.$h\"/pause 500/emote Crobus 64/globalFade/viewport -1000 -1000/end dialogue Crobus \"I like to watch you sleep.$h\"",
-            };
 
-            Event dreamEvent = new(string.Join(string.Empty, dreamEventString));
+
+            Event dreamEvent = new(string.Join(string.Empty, GetTuckInEvent()));
             dreamEvent.onEventFinished = () =>
             {
                 UpdateBuff();
-                string[] wakeUpMessages = new string[3]
-                {
-                "You wake up from the coziest night's sleep...",
-                "Wow! That was the best night's sleep of your life!",
-                "You wake up with a newfound sense of inner peace"
-                };
-                Random random = new Random();
-                int randomIndex = random.Next(0, wakeUpMessages.Length);
-                Game1.activeClickableMenu = new DialogueBox(wakeUpMessages[randomIndex]);
-
+                DisplayWakeUpMessage();
             };
 
             Game1.currentLocation.startEvent(dreamEvent);
@@ -90,11 +101,30 @@ namespace DreamMod
             Buff buff = Game1.buffsDisplay.otherBuffs.FirstOrDefault(p => p.which == this.BuffUniqueID);
             if (buff == null)
             {
-                Random random = new Random();
-                int randomIndex = random.Next(0, this.source.Length);
-                buff = new Buff(0, 0, 0, 0, 10, 0, 0, 0, 10, 10, 0, 0, 1000, this.source[randomIndex], this.source[randomIndex]) { which = this.BuffUniqueID };
+                buff = new Buff(0, 0, 0, 0, 10, 0, 0, 0, 10, 10, 0, 0, 1000, this.buffSource[this.GetRandomIndex(this.buffSource.Length)], this.buffSource[this.GetRandomIndex(this.buffSource.Length)]) { which = this.BuffUniqueID };
                 Game1.buffsDisplay.addOtherBuff(buff);
             }
+        }
+
+        private void DisplayWakeUpMessage()
+        {
+            Game1.activeClickableMenu = new DialogueBox(this.wakeUpMessages[this.GetRandomIndex(this.wakeUpMessages.Length)]);
+        }
+
+        private int GetRandomIndex(int length)
+        {
+            Random random = new Random();
+            return random.Next(0, length);
+        }
+
+        private string[] GetTuckInEvent()
+        {
+            string[] dreamEventString = new[]
+            {
+                "grandpas_theme/6 6/farmer 9 9 2 Crobus 7 7 1/skippable/pause 500/emote Crobus 32/pause 500/move Crobus 0 2 2/move Crobus 1 0 1/pause 500/speak Crobus \"" + this.crobusDreamSpeech[this.GetRandomIndex(this.crobusDreamSpeech.Length)] + "\"/pause 500/emote Crobus 20/pause 500/globalFade/viewport -1000 -1000/end dialogue Crobus \"" + this.crobusWakeSpeech[this.GetRandomIndex(this.crobusWakeSpeech.Length)] + "\"",
+            };
+
+            return dreamEventString;
         }
 
     }
